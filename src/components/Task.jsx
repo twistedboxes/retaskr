@@ -55,7 +55,13 @@ const Task = (props) => {
       </h2>
       <Button open={modal} callback={props.callback} text="Delete" />
       <Button toggle={toggleModal} callback={props.callback} text="Edit" />
-      <Modal callback={props.callback} open={modal} toggle={toggleModal} />
+      <Modal
+        content={props.content}
+        id={props.id}
+        callback={props.callback}
+        open={modal}
+        toggle={toggleModal}
+      />
     </div>
   );
 };
