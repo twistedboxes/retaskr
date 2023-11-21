@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "./Button";
 import axios from "axios";
 import Modal from "./Modal";
-
+import { motion } from "framer-motion";
 const Task = (props) => {
   const URL = "http://localhost:3000/tasks/";
   const [modal, setModal] = useState(false);
@@ -44,7 +44,12 @@ const Task = (props) => {
   }
 
   return (
-    <div className=" bg-white break-words p-2 rounded-lg">
+    <motion.div
+      animate={{ scale: 1 }}
+      initial={{ scale: 0 }}
+      transition={{ delay: 0.03 }}
+      className=" bg-white break-words p-2 rounded-lg"
+    >
       <h2
         onClick={handleClick}
         data-completed={props.completed}
@@ -62,7 +67,7 @@ const Task = (props) => {
         open={modal}
         toggle={toggleModal}
       />
-    </div>
+    </motion.div>
   );
 };
 
